@@ -2,17 +2,17 @@ import sys
 
 test_case = int(sys.stdin.readline())
 
-for _ in range(test_case):
-    clothes_num = int(sys.stdin.readline())
-    dict = {}
-    for _ in range(clothes_num):
-        clothes_name, clothes_type = sys.stdin.readline().split()
-        if clothes_type in dict:
-            dict[clothes_type].append(clothes_name)
+for i in range(test_case):
+    n = int(sys.stdin.readline())
+    d_fashion = {}
+    for _ in range(n):
+        item, category = sys.stdin.readline().split()
+        if category in d_fashion:
+            d_fashion[category].append(item)
         else:
-            dict[clothes_type] = [clothes_name]
+            d_fashion[category] = [item]
 
-    count = 1
-    for i in dict:
-        count *= len(dict[i]) + 1
-    print(count - 1)
+    cnt = 1
+    for j in d_fashion:
+        cnt *= len(d_fashion[j]) + 1
+    print(cnt - 1)
