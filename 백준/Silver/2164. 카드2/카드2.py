@@ -3,15 +3,10 @@ from collections import deque
 
 n = int(sys.stdin.readline())
 
-cards = deque()
+queue = deque([i for i in range(1, n + 1)])
 
-for i in range(n):
-    cards.append(i + 1)
+while len(queue) > 1:
+    queue.popleft()
+    queue.rotate(-1)
 
-for _ in range(n):
-    if len(cards) == 1:
-        print(cards[0])
-    else:
-        cards.popleft()
-        cards.append(cards[0])
-        cards.popleft()
+print(*queue)
